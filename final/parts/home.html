@@ -1,0 +1,37 @@
+<section class="container">
+  <div class="col-md-9 ">
+      <div class="col-md-6 contentbox text-left hightcontent box" ng-repeat=" category in homeData | unique:'category' " >
+        <h3 class="texttitle">{{category}}</h3>
+        <div class="media" ng-repeat="content in homeData| filter:category |limitTo:5">
+         
+            <div class="media-left media-top col-md-2">
+              <a href="#">
+                <img class="media-object imgt" src="images/logo{{$index}}.png" alt="none">
+              </a>
+            </div>
+            <div class="media-bodymedia-top col-md-10">
+              <h5 class="media-heading text-left">
+              <a href="#/detail/{{content._id}}">{{content.title}}</a>
+              </h5>
+              <p class="decsb" ng-class="{'first-item': $first}"><span> {{content.content}}</span></p>
+            </div>
+              </div>
+      <div class="clearfix"> </div>
+    </div>
+  </div>
+<!-- sidebar-->
+<div class="col-md-3 side-bar" >
+   <h4 class="text-center">BÀI VIẾT MỚI</h4>
+  <div class="noti">
+    <div class="media " ng-repeat="content in homeData |limitTo:5">
+          <div class="media-body">
+        <h4 class="media-heading decsb sidebar-title text-center"><a href="#/detail/{{content._id}}">{{content.title}}</a></h4>
+        <p class="decsb"><span> {{content.content}}</span>
+              </p>
+      </div>
+    </div>
+    <div class="clearfix"> </div>
+    <div><img src="images/qc.png" class="img-fluid" alt="Responsive image"></div>
+  </div>
+</div>
+</section>
